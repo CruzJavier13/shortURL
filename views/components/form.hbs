@@ -1,0 +1,20 @@
+{{#if url}}
+<div class="card"></div>
+    <h1>Edit data</h1>
+    <form action="/edit/{{url._id}}" method="post">
+        <input type="text" name="origin" class="form-control my-2" placeholder="Add new url" value="{{url.origin}}">
+        <input type="text" name="shortURL" class="form-control my-2" placeholder="Add shortcut" value="{{url.shortURL}}">
+        <input type="submit" value="Edit" name="send" class="btn btn-warning w-100 mb-2">
+    </form>
+</div>
+{{else}}
+<div class="card">
+    <h1>Add data</h1>
+    <form action="/" method="post">
+        <input type="text" name="origin" id="" class="form-control my-2" placeholder="Add new url">
+        <input type="text" name="shortURL" id="" class="form-control my-2" placeholder="Add shortcut">
+        <input type="submit" value="Send" name="send" class="btn btn-primary w-100 mb-2">
+    </form>
+</div>
+{{/if}}
+

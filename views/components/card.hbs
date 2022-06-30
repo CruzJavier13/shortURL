@@ -1,14 +1,14 @@
 <article class="card mt-2">
     <div class="card-header">
-        <h4>ShortCut</h4>
+        <h4>{{item.shortURL}}</h4>
     </div>
     <div class="card.body">
         <p>{{item.origin}}</p>
-        <p>{{item.shortURL}}</p>
         <div class=" d-flex justify-content-end  mb-2">
-            <a href="#" class="btn btn-danger">Delete</a>
-            <a href="#" class="btn btn-warning">Edit</a>
-            <a href="#" class="btn btn-info">Save</a>
-    </div>
+            <a href="/delete/{{item._id}}" class="btn btn-danger">Delete</a>
+            <a href="/edit/{{item._id}}" class="btn btn-warning">Edit</a>
+            <button data-short="{{item.shortURL}}"  href="#" class="btn btn-info">Copy</button>
         </div>
+    </div>
+       
 </article>

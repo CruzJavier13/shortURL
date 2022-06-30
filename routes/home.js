@@ -1,15 +1,13 @@
 const express = require('express');
-
+const {readURL,addURL,deleteURL,urlEdit,urlEditForm,redirectURl} = require('../controllers/homeController');
+const urlValid = require('../middlewares/urlValid');
 const router = express.Router();
 
-router.get('/',(req,res)=>{
-    const urls = [
-        {origin:"www.google.com",shortURL:"google"},
-        {origin:"www.facebook.com",shortURL:"facebook"},
-        {origin:"www.youtube.com",shortURL:"youtube"},
-    ];
-    res.render('home',{urls});
-});
+router.get('/',readURL);
 
-
+router.post('/',urlValid,addURL);
+router.get('/delete/:id',deleteURL)
+router.get('/edit/:id',urlEdit);
+router.post('/edit/:id',urlValid,urlEditForm);
+router.get('/:shortURL',redirectURl);
 module.exports = router;
